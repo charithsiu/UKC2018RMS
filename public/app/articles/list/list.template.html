@@ -1,0 +1,22 @@
+<div class="container">
+	<a [routerLink]="['/']">Home</a>
+	<div class="jumbotron container-fluid">
+		<h1>Student List</h1>
+		<ul *ngFor="let article of articles" class="list-group">
+			<li class="list-group-item active">
+				<p>{{article.program}} -
+				<small>{{article.created}}</small> </p></li>
+			<li class="list-group-item">	<p>Name:<em> {{article.firstName+" " +article.lastName}}</em></p></li>
+			<li class="list-group-item">	<p>Email: <em>{{article.email}}</em> Phone: <em>{{article.phone}}</em></p></li>
+			<li class="list-group-item">	<p>Course:<em> {{article.program}}</em> Term: <em>{{article.term}}</em></p></li>
+			<li class="list-group-item">	<p>Confirm mail: <em>{{article.sentmail}}</em> Confirm SMS:  <em>{{article.sentsms}}</em></p></li>
+			<li class="list-group-item">	<p>Reply Email: <em>{{article.replyemail}}</em> Remarks: <em>{{article.remark}}</em></p></li>
+			<li class="list-group-item">	<p><a href="mailto:{{article.email}}" class="btn btn-info" role="button" aria-pressed="true">Send Reply Email</a> <button type="button" class="btn btn-success" (click)="update(article)">Success Reply email</button></p> </li>
+		</ul>
+
+		<!-- <div *ngIf="articles && articles.length === 0">
+			No articles yet, why don't you
+			<a [routerLink]="['/articles/create']">create one</a>?
+		</div> -->
+	</div>
+</div>

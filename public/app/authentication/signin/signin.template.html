@@ -1,0 +1,103 @@
+<div class="container">
+    <div>
+        <p></p>
+    </div>
+    <div class="jumbotron container-fluid col-sm-6">
+        <div>
+            <a [routerLink]="['/']">Home</a>
+            <br>
+            <a href="/oauth/google">Sign in with Google</a>
+        </div>
+        <br>
+        <fieldset class="the-fieldset col-sm-12">
+            <legend class="the-legend">Signin</legend>
+            <form (ngSubmit)="signin()">
+                <div class="input-group">
+                    <span class="input-group-addon col-sm-3 " id="Username">Username</span>
+                    <input type="text" class="form-control is-valid col-sm-8 " placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"
+                        [(ngModel)]="credentials.username" name="username" required>
+                    <div class="invalid-feedback">
+                        Please provide a username.
+                    </div>
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-addon col-sm-3" id="Password">Password</span>
+                    <input type="password" class="form-control is-valid col-sm-8" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1"
+                        [(ngModel)]="credentials.password" name="password" required>
+                    <div class="invalid-feedback">
+                        Please provide a password.
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary float-right">Submit</button>
+
+                <!-- <div>
+        <label>Username:</label>
+        <input type="text" [(ngModel)]="credentials.username" name="username">
+    </div>
+    <div>
+        <label>Password:</label>
+        <input type="password" [(ngModel)]="credentials.password" name="password">
+    </div>
+    <div>
+        <input type="submit" value="Sign In">
+    </div> -->
+                <span>{{errorMessage}}</span>
+            </form>
+        </fieldset>
+    </div>
+</div>
+<style>
+    .the-legend {
+        color: #FFFFFF;
+        background-color: #660000;
+        padding: 7px;
+        border-radius: 7px;
+        font-weight: bold;
+        font-size: 14px;
+        display: block;
+        -webkit-padding-start: 2px;
+        -webkit-padding-end: 2px;
+        border-width: inherit;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        width: auto;
+    }
+
+    .the-fieldset {
+        border: 1px solid #660000;
+        padding: 10px;
+        border-radius: 7px;
+        width: auto;
+    }
+
+    .form-group.row {
+        width: auto;
+    }
+
+    div.jumbotron.container.fluid {
+        width: auto;
+    }
+
+    .red-star {
+        color: red;
+        font-size: 60%;
+    }
+
+    .btn-primary,
+    .btn-primary:checked,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:active:focus {
+        background-color: #660000;
+        border-color: #660000;
+    }
+
+    .btn-primary:visited,
+    .btn-primary:focus {
+        background-color: #660000;
+        border-color: #660000;
+    }
+</style>

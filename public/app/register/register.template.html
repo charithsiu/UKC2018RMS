@@ -1,0 +1,165 @@
+<div class="container" onload="myScript();" id='rform'>
+ <div><p></p></div>
+    <div class="jumbotron container-fluid col-sm-8">
+        <p><a [routerLink]="['/']">Home</a></p>
+            
+        <form (ngSubmit)="signup()" id='registerform' >
+            <fieldset class="the-fieldset col-sm-12"  load="myScript('Charith');">
+                <legend class="the-legend">Have Questions?</legend>
+            
+                <div class="form-group row ">
+                <label for="First Name " class="col-sm-3 col-form-label">First Name<sup class="red-star">★</sup></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control is-valid" [(ngModel)]="register.firstName" name="firstName" placeholder="Enter First Name"
+                        required>
+                    <div class="invalid-feedback">
+                        Please provide a frist name.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label for="Last Name" class="col-sm-3 col-form-label">Last Name<sup class="red-star">★</sup></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control is-valid" [(ngModel)]="register.lastName" name="lastName" placeholder="Enter Last Name"
+                        required>
+                    <div class="invalid-feedback">
+                        Please provide a last name.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label for="Email" class="col-sm-3 col-form-label">Email<sup class="red-star">★</sup></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control is-valid" [(ngModel)]="register.email" name="email" placeholder="Enter Email address"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid email.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label for="Phone" class="col-sm-3 col-form-label">Phone<sup class="red-star">★</sup></label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control is-valid" [(ngModel)]="register.phone" name="phone" placeholder="Enter Phone number"
+                    pattern="\d{10}" required> <!--[\-]\d{3}[\-]\d{4}-->
+                    <div class="invalid-feedback">
+                        Please provide a valid phone.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label for="program" class="col-sm-3 col-form-label">Program</label>
+                <div class="col-sm-9">
+                    <select class="form-control is-valid" id="programselect" [(ngModel)]="register.program" name="program" required>
+                        <option value="IST Online Program" selected>Infromation System Technologies Online Program</option>
+                        <option value="IST On-Campus Program" >Information System Technologies On-campus Program</option>
+                        <option value="EST Online Program">Electronic Systems Technologies Online Program</option>
+                        <option value="EST Off-campus Program">Electronic Systems Technologies Off-campus Program</option>
+                        <option value="TRM Online Program">Technical Resource Management Online Program</option>
+                        <option value="TRM On-campus Program">Technical Resource Management On-campus Program</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a program choice.
+                    </div>
+                    <div class="test"></div>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label for="term" class="col-sm-3 col-form-label">Term</label>
+                <div class="col-sm-9">
+                    <select class="form-control is-valid" id="termselect" [(ngModel)]="register.term" ng-init="register.term='Spring 2018'" ng-options="option.value as option.name for option in typeOptions"
+                        name="Term" required>
+                        <option style="display:true" value="Spring 2018" selected="register.term == Spring 2018" >Spring 2018</option>
+                        <option value="Summer 2018">Summer 2018</option>
+                        <option value="Fall 2018">Fall 2018</option>
+                        <option value="Spring 2019">Spring 2019</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please provide a term.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row ">
+                <label for="exampleTextarea" class="col-sm-10 col-form-label" >Provide us with any further information you think may be important</label>
+                <div class="col-sm-10">
+                <textarea class="form-control" id="remarktextarea" [(ngModel)]="register.remark" name="remark"></textarea>
+            </div>
+            </div>
+            <div class="form-group row">
+                <label for="spamvalidation" class="col-sm-10 col-form-label">Type <b>S@luki</b><sup class="red-star">★</sup></label>
+               
+                <div class="col-sm-6">
+                    <input type="text" class="form-control is-valid"  name="spamvalidation" placeholder="Phrase to prevent from spam."
+                        required pattern="^S@luki$" >
+                    <div class="invalid-feedback">
+                        Please provide above phrase to prevent from spam.*
+                    </div>
+                </div>
+            </div>
+            </fieldset>
+            <br>
+            <button type="button" class="btn btn-danger" onclick="document.getElementById('registerform').reset();" onload="myScript();">Clear Form</button>
+            <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+alert("Hello");
+    window.onload = function() {
+ alert("let's go!");
+}
+//document.getElementById('registerform').reset();
+   function myScript() {
+   alert("Hello");
+  };
+      
+</script>
+<style>
+    .the-legend {
+        color: #FFFFFF;
+        background-color: #660000;
+        padding: 7px;
+        border-radius: 7px;
+        font-weight: bold;
+        font-size: 14px;
+        display: block;
+    -webkit-padding-start: 2px;
+    -webkit-padding-end: 2px;
+    border-width: inherit;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    width: auto;
+}
+.the-fieldset {
+    border: 1px solid #660000;
+    padding: 10px;
+    border-radius: 7px;
+    width: auto;
+}
+.form-group.row{
+    width: auto;
+}
+div.jumbotron.container.fluid{
+    width: auto;
+}
+.red-star {
+    color: red;
+    font-size: 60%;
+}
+.btn-primary,
+.btn-primary:checked,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:active:focus{
+    background-color: #660000;
+    border-color: #660000; 
+}
+.btn-primary:visited,
+.btn-primary:focus {
+    background-color: #660000;
+    border-color: #660000; 
+}
+</style>
