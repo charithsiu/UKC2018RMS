@@ -4,42 +4,47 @@ const Schema = mongoose.Schema;
 
 // Define a new 'RegisterSchema'
 const RegisterSchema = new Schema({
-	firstName: String,
-	lastName: String,
+	firstName:{
+		type: String,
+		required: 'First Name is required'},
+	lastName: {
+		type:String,
+		required: 'Last Name is required'},
 	email: {
 		type: String,
+		required: 'email is required',
 		// Validate the email format
 		match: [/.+\@.+\..+/, "Please fill a valid email address"]
 	},
-	phone: {
+	affiliation: {
 		type: String,
 		// Trim the 'username' field
+		required: 'Program is required',
 		trim: true
 	},
 
-	program: {
-		type: String,
-		// Validate 'provider' value existance
-		required: 'Program is required'
-    },
-    term: {
-		type: String,
-		// Validate 'provider' value existance
-		required: 'Term is required'
-	},
-	remark: {
+	position: {
 		type: String
+		// Validate 'provider' value existance
+		
+    },
+    address: {
+		type: String,
+		// Validate 'provider' value existance
+		required: 'address is required'
 	},
-	sentmail: {
+	city: {
+		type: String,
+		required: 'City is required'
+	},
+	state: {
+		type: String,
+		required: 'State is required'
+	},
+	confirmemail: {
 		type: Boolean
 	},
-	sentsms: {
-		type: Boolean
-	},
-	replyemail: {
-		type: Boolean
-	},
-	otherremark: {
+	submitconfirm: {
 		type: Boolean
     },
     created: {

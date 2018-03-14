@@ -35,11 +35,11 @@ const getErrorMessage = function(err) {
 exports.signup = function(req, res) {
 	const register = new Register(req.body);
 	//console.log('Registering..'+register.firstName);
-	sendmail(register.firstName,register.email,register.program);
-	sendsms(register.firstName,register.phone,register.program);
-	register.sentmail=true;
-	register.sentsms=true;
-	register.replyemail=false;
+	//sendmail(register.firstName,register.email,register.program);
+	//sendsms(register.firstName,register.phone,register.program);
+	//register.sentmail=true;
+	//register.sentsms=true;
+	//register.replyemail=false;
 	//console.log(register);
 	register.save((err) => {
 		if (err) {
