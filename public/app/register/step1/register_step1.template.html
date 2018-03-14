@@ -1,15 +1,17 @@
 <div class="container" onload="myScript();" id='rform'>
+    <div class="row">
+        <div class="col-lg-8 col-centered">
  <div><p></p></div>
         <p><a [routerLink]="['/']">Home</a></p>
-        <img src="img/banner.jpg" class="img-fluid" alt="Responsive image">
-     <br><br>
-        <div class="col-lg-8 col-offset-6 centered">
+        <img src="img/banner.jpg" class="img-fluid" alt="UKC2018_logo">
+     <br><br></div></div>
+        <div class="col-lg-8 col-centered">
                 <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                         <li class="breadcrumb-item active" aria-current="page">1. Conctact Info</li>
                           <li class="breadcrumb-item"><a href="#">2. Lodging/Access ID</a></li>
                           <li class="breadcrumb-item"><a href="#">3. Meals/Discounts</a></li>
-                          <li class="breadcrumb-item"><a href="#">3. Review/Payment</a></li>
+                          <li class="breadcrumb-item"><a href="#">4. Review/Payment</a></li>
                         </ol>
                      </nav>  
 
@@ -167,7 +169,7 @@
             <button type="submit" class="btn btn-primary float-right" >Save & Next</button>
         </form>
     </div>
-    
+
 </div>
 
 <script type="text/javascript">
@@ -182,6 +184,10 @@ alert("Hello");
       
 </script>
 <style>
+    .col-centered{
+    float: none;
+    margin: 0 auto;
+}
     .the-legend {
         color: #FFFFFF;
         background-color: #660000;

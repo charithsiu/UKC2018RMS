@@ -4,10 +4,10 @@ import { RegisterService } from '../register.service';
 import { Script } from 'vm';
 @Component({
 selector: 'regpage_f',
-templateUrl: 'app/register/step1/registerpage_step1.template.html',
+templateUrl: 'app/register/step1/register_step1.template.html',
 providers:[RegisterService]
 })
-export class Registerpage_step1Component {
+export class Register_step1Component {
     register: any = {};
     errorMessage: string;
     

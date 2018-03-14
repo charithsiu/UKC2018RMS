@@ -45,7 +45,8 @@ const RegisterSchema = new Schema({
 		type: Boolean
 	},
 	submitconfirm: {
-		type: Boolean
+		type: Boolean,
+		default:false,
     },
     created: {
         type: Date,
