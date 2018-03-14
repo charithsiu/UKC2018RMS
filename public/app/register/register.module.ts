@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { RegisterRoutes } from './register.routers';
 import { RegisterComponent } from './register.component';
 import { ThankyouComponent } from './thankyou/thankyou.component';
-import { RegisterPage_FComponent } from './regpage_f/registerpage_f.component';
+import { Registerpage_step1Component } from './step1/registerpage_step1.component';
 
 
 @NgModule({
@@ -16,7 +16,7 @@ RouterModule.forChild(RegisterRoutes),
 ],
 declarations: [
 RegisterComponent,
-RegisterPage_FComponent,
+Registerpage_step1Component,
 ThankyouComponent,
 ]
 })

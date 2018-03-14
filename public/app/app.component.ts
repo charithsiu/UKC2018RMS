@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AuthenticationService } from './authentication/authentication.service';
-import { Router } from '@angular/router';
+import { Component }              from '@angular/core';
+import { AuthenticationService }  from './authentication/authentication.service';
+import { Router }                 from '@angular/router';
 
 @Component({
   selector: 'mean-app',
