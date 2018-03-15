@@ -1,83 +1,104 @@
 <div class="container" onload="myScript();" id='rform'>
     <div class="row">
         <div class="col-lg-8 col-centered">
- <div><p></p></div>
-        <p><a [routerLink]="['/']">Home</a></p>
-        <img src="img/banner.jpg" class="img-fluid" alt="UKC2018_logo">
-     <br><br></div></div>
-        <div class="col-lg-8 col-centered">
-                <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">1. Conctact Info</li>
-                          <li class="breadcrumb-item"><a href="#">2. Lodging/Access ID</a></li>
-                          <li class="breadcrumb-item"><a href="#">3. Meals/Discounts</a></li>
-                          <li class="breadcrumb-item"><a href="#">4. Review/Payment</a></li>
-                        </ol>
-                     </nav>  
+            <div>
+                <p></p>
+            </div>
+            <p>
+                <a [routerLink]="['/']">Home</a>
+            </p>
+            <img src="img/banner.jpg" class="img-fluid" alt="UKC2018_logo">
+            <br>
+            <br>
+        </div>
+    </div>
+    <div class="col-lg-8 col-centered">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page">1. Conctact Info</li>
+                <li class="breadcrumb-item">
+                    <a href="/register/step2">2. Lodging/Access ID</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/register/step3">3. Meals</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="/register/step4">4. Registration/Discounts</a>
+                </li>
+                <li class="breadcrumb-item">
+                        <a href="/register/step5">5. Review/Payment</a>
+                    </li>
+            </ol>
+        </nav>
 
-        <form (ngSubmit)="signup()" id='registerform' >   
-            <div  class="form-row"> 
-            <div class="form-group col-md-6">
-                <label for="First Name ">First Name<sup class="red-star">★</sup></label>
-            
-                    <input type="text" class="form-control" [(ngModel)]="register.firstName" name="firstName" 
-                        required>
+        <form (ngSubmit)="save4step1()" id='registerform'>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="First Name ">First Name
+                        <sup class="red-star">★</sup>
+                    </label>
+
+                    <input type="text" class="form-control" [(ngModel)]="register.firstName" name="firstName" required>
                     <div class="invalid-feedback">
                         Please provide a frist name.
-                
+                    </div>
                 </div>
-            </div>
-            <div class="form-group col-md-6">
-                <label for="Last Name">Last Name<sup class="red-star">★</sup></label>
-              
-                    <input type="text" class="form-control" [(ngModel)]="register.lastName" name="lastName" 
-                        required>
+
+                <div class="form-group col-md-6">
+                    <label for="Last Name">Last Name
+                        <sup class="red-star">★</sup>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="register.lastName" name="lastName" required>
                     <div class="invalid-feedback">
                         Please provide a last name.
                     </div>
-           
+                </div>
             </div>
-        </div> 
+
             <div class="form-group">
-                <label for="affiliation" >Affiliation/Organization<sup class="red-star">★</sup></label>
-                
-                    <input type="text" class="form-control" [(ngModel)]="register.affiliation" name="affiliation" 
-                    required> <!--[\-]\d{3}[\-]\d{4}-->
-                    <div class="invalid-feedback">
-                        Please provide an affiliation.
-                    </div>
+                <label for="affiliation">Affiliation/Organization
+                    <sup class="red-star">★</sup>
+                </label>
+
+                <input type="text" class="form-control" [(ngModel)]="register.affiliation" name="affiliation" required>
+                <div class="invalid-feedback">
+                    Please provide an affiliation.
+                </div>
             </div>
+
             <div class="form-group">
-                <label for="position">Position/Title</label>             
-                    <input type="text" class="form-control" [(ngModel)]="register.position" name="position"> <!--[\-]\d{3}[\-]\d{4}-->
+                <label for="position">Position/Title</label>
+                <input type="text" class="form-control" [(ngModel)]="register.position" name="position">
             </div>
+
             <div class="form-group">
-                <label for="address"> Street Address<sup class="red-star">★</sup></label>
-                
-                    <input type="text" class="form-control" [(ngModel)]="register.address" name="address" 
-                    required> <!--[\-]\d{3}[\-]\d{4}-->
-                    <div class="invalid-feedback">
-                        Please provide a street address.
-                    </div>
-          
+                <label for="address"> Street Address
+                    <sup class="red-star">★</sup>
+                </label>
+                <input type="text" class="form-control" [(ngModel)]="register.address" name="address" required>
+                <div class="invalid-feedback">
+                    Please provide a street address.
+                </div>
             </div>
+
             <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="city" >City<sup class="red-star">★</sup></label>
-              
-                    <input type="text" class="form-control" [(ngModel)]="register.city" name="city" 
-                    required> <!--[\-]\d{3}[\-]\d{4}-->
+                <div class="form-group col-md-6">
+                    <label for="city">City
+                        <sup class="red-star">★</sup>
+                    </label>
+                    <input type="text" class="form-control" [(ngModel)]="register.city" name="city" required>
                     <div class="invalid-feedback">
                         Please provide a city.
                     </div>
-               
-            </div>
-            <div class="form-group col-md-4">
-                <label for="state">State<sup class="red-star">★</sup></label>
-              
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label for="state">State
+                        <sup class="red-star">★</sup>
+                    </label>
+
                     <select class="form-control" id="programselect" [(ngModel)]="register.state" name="state" required>
                         <option value="" selected>- Select Provice/State</option>
-                        
                         <option value="AK">Alaska</option>
                         <option value="AL">Alabama</option>
                         <option value="AR">Arkansas</option>
@@ -134,60 +155,65 @@
                     <div class="invalid-feedback">
                         Please provide a state.
                     </div>
-            </div>
-            <div class="form-group col-md-2">
+                </div>
+
+                <div class="form-group col-md-2">
                     <label for="inputZip">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
+                    <input type="text" class="form-control" [(ngModel)]="register.zip" name="zip">
+                </div>
             </div>
-        </div>
+
             <div class="form-group">
-                <label for="Email" >Email<sup class="red-star">★</sup></label>
-              
-                    <input type="text" class="form-control" [(ngModel)]="register.email" name="email" 
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
-                    <div class="invalid-feedback">
-                        Please provide a valid email.
-                    </div>
-   
-            </div>
-            <div class="form-group">
-                    <div class="form-check">
-                <input class="form-radio-input" type="radio" name="confirmemail"  value="true" [(ngModel)]="register.confirmemail">
-                <label class="form-check-label" for="exampleRadios1">I confirm that the above email address was used for my paper submission.
+                <label for="Email">Email
+                    <sup class="red-star">★</sup>
                 </label>
+                <input type="text" class="form-control" [(ngModel)]="register.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                    required>
+                <div class="invalid-feedback">
+                    Please provide a valid email.
+                </div>
             </div>
-            </div>
+
             <div class="form-group">
                 <div class="form-check">
-                <input class="form-radio-input" type="radio" name="confirmemail"  value="false" [(ngModel)]="register.confirmemail">
-                <label class="form-check-label" for="exampleRadios1">I confirm that I did not submit a paper to UKC2018.
-                </label>
+                    <input class="form-radio-input" type="radio" name="confirmemail" value="true" [(ngModel)]="register.confirmemail">
+                    <label class="form-check-label" for="exampleRadios1">I confirm that the above email address was used for my paper submission.
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input class="form-radio-input" type="radio" name="confirmemail" value="false" [(ngModel)]="register.confirmemail">
+                    <label class="form-check-label" for="exampleRadios1">I confirm that I did not submit a paper to UKC2018.
+                    </label>
                 </div>
             </div>
 
             <button type="button" class="btn btn-danger" onclick="document.getElementById('registerform').reset();" onload="myScript();">Clear Form</button>
-            <button type="submit" class="btn btn-primary float-right" >Save & Next</button>
+            <button type="submit" class="btn btn-primary float-right">Save & Next</button>
         </form>
     </div>
 
 </div>
 
 <script type="text/javascript">
-alert("Hello");
-    window.onload = function() {
- alert("let's go!");
-}
-//document.getElementById('registerform').reset();
-   function myScript() {
-   alert("Hello");
-  };
-      
+    alert("Hello");
+    window.onload = function () {
+        alert("let's go!");
+    }
+    //document.getElementById('registerform').reset();
+    function myScript() {
+        alert("Hello");
+    };
+
 </script>
 <style>
-    .col-centered{
-    float: none;
-    margin: 0 auto;
-}
+    .col-centered {
+        float: none;
+        margin: 0 auto;
+    }
+
     .the-legend {
         color: #FFFFFF;
         background-color: #660000;
@@ -196,41 +222,47 @@ alert("Hello");
         font-weight: bold;
         font-size: 14px;
         display: block;
-    -webkit-padding-start: 2px;
-    -webkit-padding-end: 2px;
-    border-width: inherit;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    width: auto;
-}
-.the-fieldset {
-    border: 1px solid #660000;
-    padding: 10px;
-    border-radius: 7px;
-    width: auto;
-}
-.form-group.row{
-    width: auto;
-}
-div.jumbotron.container.fluid{
-    width: auto;
-}
-.red-star {
-    color: red;
-    font-size: 60%;
-}
-.btn-primary,
-.btn-primary:checked,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:active:focus{
-    background-color: #660000;
-    border-color: #660000; 
-}
-.btn-primary:visited,
-.btn-primary:focus {
-    background-color: #660000;
-    border-color: #660000; 
-}
+        -webkit-padding-start: 2px;
+        -webkit-padding-end: 2px;
+        border-width: inherit;
+        border-style: none;
+        border-color: initial;
+        border-image: initial;
+        width: auto;
+    }
+
+    .the-fieldset {
+        border: 1px solid #660000;
+        padding: 10px;
+        border-radius: 7px;
+        width: auto;
+    }
+
+    .form-group.row {
+        width: auto;
+    }
+
+    div.jumbotron.container.fluid {
+        width: auto;
+    }
+
+    .red-star {
+        color: red;
+        font-size: 60%;
+    }
+
+    .btn-primary,
+    .btn-primary:checked,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:active:focus {
+        background-color: #660000;
+        border-color: #660000;
+    }
+
+    .btn-primary:visited,
+    .btn-primary:focus {
+        background-color: #660000;
+        border-color: #660000;
+    }
 </style>

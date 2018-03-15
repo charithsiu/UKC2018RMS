@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular/router', './register.routers', './register.component', './thankyou/thankyou.component', './step1/register_step1.component'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular/router', './register.routers', './register.component', './thankyou/thankyou.component', './step1/register_step1.component', './step2/register_step2.component', './step3/register_step3.component', './step4/register_step4.component', './step5/register_step5.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, common_1, forms_1, router_1, register_routers_1, register_component_1, thankyou_component_1, register_step1_component_1;
+    var core_1, common_1, forms_1, router_1, register_routers_1, register_component_1, thankyou_component_1, register_step1_component_1, register_step2_component_1, register_step3_component_1, register_step4_component_1, register_step5_component_1;
     var RegisterModule;
     return {
         setters:[
@@ -37,6 +37,18 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
             },
             function (register_step1_component_1_1) {
                 register_step1_component_1 = register_step1_component_1_1;
+            },
+            function (register_step2_component_1_1) {
+                register_step2_component_1 = register_step2_component_1_1;
+            },
+            function (register_step3_component_1_1) {
+                register_step3_component_1 = register_step3_component_1_1;
+            },
+            function (register_step4_component_1_1) {
+                register_step4_component_1 = register_step4_component_1_1;
+            },
+            function (register_step5_component_1_1) {
+                register_step5_component_1 = register_step5_component_1_1;
             }],
         execute: function() {
             RegisterModule = (function () {
@@ -52,6 +64,10 @@ System.register(['@angular/core', '@angular/common', '@angular/forms', '@angular
                         declarations: [
                             register_component_1.RegisterComponent,
                             register_step1_component_1.Register_step1Component,
+                            register_step2_component_1.Register_step2Component,
+                            register_step3_component_1.Register_step3Component,
+                            register_step4_component_1.Register_step4Component,
+                            register_step5_component_1.Register_step5Component,
                             thankyou_component_1.ThankyouComponent,
                         ]
                     }), 

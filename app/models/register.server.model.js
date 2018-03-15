@@ -6,27 +6,20 @@ const Schema = mongoose.Schema;
 const RegisterSchema = new Schema({
 	firstName:{
 		type: String,
-		required: 'First Name is required'},
+		required: 'First Name is required'
+	},
 	lastName: {
 		type:String,
-		required: 'Last Name is required'},
-	email: {
-		type: String,
-		required: 'email is required',
-		// Validate the email format
-		match: [/.+\@.+\..+/, "Please fill a valid email address"]
+		required: 'Last Name is required'
 	},
 	affiliation: {
 		type: String,
 		// Trim the 'username' field
-		required: 'Program is required',
+		required: 'affiliation is required',
 		trim: true
 	},
-
 	position: {
-		type: String
-		// Validate 'provider' value existance
-		
+		type: String	
     },
     address: {
 		type: String,
@@ -41,6 +34,15 @@ const RegisterSchema = new Schema({
 		type: String,
 		required: 'State is required'
 	},
+	zip: {
+		type: String
+	},
+	email: {
+		type: String,
+		required: 'email is required',
+		// Validate the email format
+		match: [/.+\@.+\..+/, "Please fill a valid email address"]
+	},
 	confirmemail: {
 		type: Boolean
 	},
@@ -51,15 +53,9 @@ const RegisterSchema = new Schema({
     created: {
         type: Date,
         default: Date.now
-    },
-	providerId: String,
-	providerData: {},
-	created: {
-		type: Date,
-		// Create a default 'created' value
-		default: Date.now
-	}
+    }
 });
+
 // Set the 'fullname' virtual property
 RegisterSchema.virtual('fullName').get(function() {
 	return this.firstName + ' ' + this.lastName;
@@ -69,5 +65,5 @@ RegisterSchema.virtual('fullName').get(function() {
 	this.lastName = splitName[1] || '';
 });
 
-// Create the 'Article' model out of the 'ArticleSchema'
+// Create the 'Register' model out of the 'RegisterSchema'
 mongoose.model('Register', RegisterSchema);
