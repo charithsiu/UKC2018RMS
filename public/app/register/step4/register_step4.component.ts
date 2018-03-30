@@ -3,7 +3,7 @@ import {Router} from '@angular/router'
 import { RegisterService } from '../register.service';
 import { Script } from 'vm';
 @Component({
-selector: 'regpage_f',
+selector: 'step4',
 templateUrl: 'app/register/step4/register_step4.template.html',
 providers:[RegisterService]
 })
@@ -14,8 +14,8 @@ export class Register_step4Component {
     constructor (private _registerService: RegisterService, 
         private _router: Router) {}
 
-signup() {
-this._registerService.signup(this.register)
+        save4step1() {
+this._registerService.save4step1(this.register)
                           .subscribe(result  => this._router.navigate(['/thankyou']),
                                       error =>  this.errorMessage = error);
 }

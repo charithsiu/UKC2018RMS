@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router'
+import {Router,ActivatedRoute} from '@angular/router'
 import { RegisterService } from '../register.service';
-import { Script } from 'vm';
+
 @Component({
-selector: 'regpage_f',
+selector: 'step2',
 templateUrl: 'app/register/step2/register_step2.template.html',
 providers:[RegisterService]
 })
@@ -11,19 +11,40 @@ export class Register_step2Component {
     register: any = {};
     errorMessage: string;
     
-    constructor (private _registerService: RegisterService, 
-        private _router: Router) {}
+    paramsObserver: any;
+    
+    constructor (private _registerService: RegisterService, private _router:Router, 
+        private _route: ActivatedRoute) {}
 
-signup() {
+/* signup() {
 this._registerService.signup(this.register)
                           .subscribe(result  => this._router.navigate(['/thankyou']),
                                       error =>  this.errorMessage = error);
+} */
+
+ngOnInit() {
+    
+
+    this.paramsObserver = this._route.params.subscribe(params => {
+        let registerId = params['registerId'];
+        console.log(registerId);
+
+        this._registerService.read(registerId).subscribe(register => {
+            this.register = register;
+         },
+        error => this._router.navigate(['/register/step1']));
+
+    });
+}
+
+ngOnDestroy() {
+    this.paramsObserver.unsubscribe();
 }
 
 ngAfterViewInit(){
   
     $(document).ready(function () {
-        $('#step2form')[0].reset();
+       
         $("#room").hide();
         $("#broom").hide();
        var price = 0.00;

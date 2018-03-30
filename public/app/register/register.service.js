@@ -30,12 +30,19 @@ System.register(['rxjs/Rx', 'rxjs/Observable', '@angular/core', '@angular/http']
                     this._http = _http;
                     this._baseURL = 'api/register';
                 }
-                RegisterService.prototype.signup = function (register) {
+                RegisterService.prototype.save4step1 = function (register) {
                     var body = JSON.parse(JSON.stringify(register || null));
                     var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
                     var options = new http_1.RequestOptions({ headers: headers });
                     return this._http
                         .post(this._baseURL, register)
+                        .map(function (res) { return res.json(); })
+                        .catch(this.handleError);
+                };
+                RegisterService.prototype.read = function (registerId) {
+                    console.log("Url:" + this._baseURL + '/' + registerId);
+                    return this._http
+                        .get(this._baseURL + "/" + registerId)
                         .map(function (res) { return res.json(); })
                         .catch(this.handleError);
                 };

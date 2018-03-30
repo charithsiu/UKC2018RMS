@@ -12,7 +12,7 @@ path: 'register',
 component: RegisterComponent,
  children: [
      {path:'step1',component:Register_step1Component},
-     {path:'step2',component:Register_step2Component},
+     {path:':registerId/step2',component:Register_step2Component},
      {path:'step3',component:Register_step3Component},
      {path:'step4',component:Register_step4Component},
      {path:'step5',component:Register_step5Component},

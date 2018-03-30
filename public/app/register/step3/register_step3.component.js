@@ -30,9 +30,9 @@ System.register(['@angular/core', '@angular/router', '../register.service'], fun
                     this._router = _router;
                     this.register = {};
                 }
-                Register_step3Component.prototype.signup = function () {
+                Register_step3Component.prototype.save4step1 = function () {
                     var _this = this;
-                    this._registerService.signup(this.register)
+                    this._registerService.save4step1(this.register)
                         .subscribe(function (result) { return _this._router.navigate(['/thankyou']); }, function (error) { return _this.errorMessage = error; });
                 };
                 Register_step3Component.prototype.ngAfterViewInit = function () {
@@ -47,7 +47,7 @@ System.register(['@angular/core', '@angular/router', '../register.service'], fun
                 };
                 Register_step3Component = __decorate([
                     core_1.Component({
-                        selector: 'regpage_f',
+                        selector: 'step3',
                         templateUrl: 'app/register/step3/register_step3.template.html',
                         providers: [register_service_1.RegisterService]
                     }), 

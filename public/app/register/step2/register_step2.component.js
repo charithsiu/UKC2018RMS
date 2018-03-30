@@ -25,19 +25,32 @@ System.register(['@angular/core', '@angular/router', '../register.service'], fun
             }],
         execute: function() {
             Register_step2Component = (function () {
-                function Register_step2Component(_registerService, _router) {
+                function Register_step2Component(_registerService, _router, _route) {
                     this._registerService = _registerService;
                     this._router = _router;
+                    this._route = _route;
                     this.register = {};
                 }
-                Register_step2Component.prototype.signup = function () {
+                /* signup() {
+                this._registerService.signup(this.register)
+                                          .subscribe(result  => this._router.navigate(['/thankyou']),
+                                                      error =>  this.errorMessage = error);
+                } */
+                Register_step2Component.prototype.ngOnInit = function () {
                     var _this = this;
-                    this._registerService.signup(this.register)
-                        .subscribe(function (result) { return _this._router.navigate(['/thankyou']); }, function (error) { return _this.errorMessage = error; });
+                    this.paramsObserver = this._route.params.subscribe(function (params) {
+                        var registerId = params['registerId'];
+                        console.log(registerId);
+                        _this._registerService.read(registerId).subscribe(function (register) {
+                            _this.register = register;
+                        }, function (error) { return _this._router.navigate(['/register/step1']); });
+                    });
+                };
+                Register_step2Component.prototype.ngOnDestroy = function () {
+                    this.paramsObserver.unsubscribe();
                 };
                 Register_step2Component.prototype.ngAfterViewInit = function () {
                     $(document).ready(function () {
-                        $('#step2form')[0].reset();
                         $("#room").hide();
                         $("#broom").hide();
                         var price = 0.00;
@@ -91,11 +104,11 @@ System.register(['@angular/core', '@angular/router', '../register.service'], fun
                 };
                 Register_step2Component = __decorate([
                     core_1.Component({
-                        selector: 'regpage_f',
+                        selector: 'step2',
                         templateUrl: 'app/register/step2/register_step2.template.html',
                         providers: [register_service_1.RegisterService]
                     }), 
-                    __metadata('design:paramtypes', [register_service_1.RegisterService, router_1.Router])
+                    __metadata('design:paramtypes', [register_service_1.RegisterService, router_1.Router, router_1.ActivatedRoute])
                 ], Register_step2Component);
                 return Register_step2Component;
             }());

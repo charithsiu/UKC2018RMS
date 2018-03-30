@@ -9,7 +9,7 @@ private _baseURL = 'api/register';
 
 
 constructor (private _http: Http) {}
-signup(register: any): Observable<any> {
+save4step1(register: any): Observable<any> {
     let body = JSON.parse(JSON.stringify(register||null));
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -18,6 +18,15 @@ signup(register: any): Observable<any> {
         .map((res: Response) => res.json())
         .catch(this.handleError);
   }
+
+  read(registerId: string): Observable<any> {
+    console.log("Url:"+this._baseURL+'/'+registerId);
+    return this._http
+        .get(`${this._baseURL}/${registerId}`)
+        .map((res: Response) => res.json())
+        .catch(this.handleError);
+        
+}
  
 list(): Observable<any> {
     return this._http

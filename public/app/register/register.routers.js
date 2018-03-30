@@ -29,7 +29,7 @@ System.register(['./register.component', './step1/register_step1.component', './
                     component: register_component_1.RegisterComponent,
                     children: [
                         { path: 'step1', component: register_step1_component_1.Register_step1Component },
-                        { path: 'step2', component: register_step2_component_1.Register_step2Component },
+                        { path: ':registerId/step2', component: register_step2_component_1.Register_step2Component },
                         { path: 'step3', component: register_step3_component_1.Register_step3Component },
                         { path: 'step4', component: register_step4_component_1.Register_step4Component },
                         { path: 'step5', component: register_step5_component_1.Register_step5Component },
